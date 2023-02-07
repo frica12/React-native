@@ -1,9 +1,12 @@
-import React, { useContext, useState, useRef } from "react";
+import React, { useContext, useState, useRef, useEffect } from "react";
 import { ThemeContext } from "styled-components/native";
 import styled from "styled-components/native";
-import { Button, Image, Input } from "../components";
+import { Button, Image, Input, ErrorMessage } from "../components";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { signin } from "../firebase";
+import { Alert } from "react-native";
+import { validateEmail, removeWhitespace } from "../utils";
 
 const Container = styled.View`
   flex: 1;
@@ -24,10 +27,33 @@ const Signin = ({ navigation }) => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [disabled, setDisabled] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
   const refPassword = useRef(null);
 
-  const _handleSigninBtnPress = () => {
-    console.log("signin");
+  useEffect(() => {
+    setDisabled(!(email && password && !errorMessage));
+  }, [email, password, errorMessage]);
+
+  const _handleEmailChange = (email) => {
+    const changeEmail = removeWhitespace(email);
+    setEmail(changeEmail);
+    setErrorMessage(
+      validateEmail(changeEmail) ? "" : "Please verify your email"
+    );
+  };
+
+  const _handlePasswordChange = (password) => {
+    setPassword(removeWhitespace(password));
+  };
+
+  const _handleSigninBtnPress = async () => {
+    try {
+      const user = await signin({ email, password });
+      navigation.navigate("Profile", { user });
+    } catch (e) {
+      Alert.alert("Signin Error", e.message);
+    }
   };
 
   return (
@@ -42,7 +68,7 @@ const Signin = ({ navigation }) => {
           placeholder="Email"
           returnKeyType="next"
           value={email}
-          onChangeText={setEmail}
+          onChangeText={_handleEmailChange}
           onSubmitEditing={() => refPassword.current.focus()}
         />
         <Input
@@ -51,11 +77,16 @@ const Signin = ({ navigation }) => {
           placeholder="Password"
           returnKeyType="done"
           value={password}
-          onChangeText={setPassword}
+          onChangeText={_handlePasswordChange}
           isPassword={true}
           onSubmitEditing={_handleSigninBtnPress}
         />
-        <Button title="Sign in" onPress={_handleSigninBtnPress} />
+        <ErrorMessage message={errorMessage} />
+        <Button
+          title="Sign in"
+          onPress={_handleSigninBtnPress}
+          disabled={disabled}
+        />
         <Button
           title="or sign up"
           onPress={() => navigation.navigate("Signup")}
