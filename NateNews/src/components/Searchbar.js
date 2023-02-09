@@ -6,6 +6,7 @@ const SearchBarWrapper = styled.View`
   align-items: center;
   width: 100%;
   background-color: #efefef;
+  border: #fa5858;
   border-radius: 4px;
   padding: 10px 14px 10px 12px;
   margin-top: 0px;

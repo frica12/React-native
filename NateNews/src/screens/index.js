@@ -1,4 +1,4 @@
-import News from "./News";
+import Newspage from "./Newspage";
 import Main from "./Main";
 
-export { News, Main };
+export { Newspage, Main };

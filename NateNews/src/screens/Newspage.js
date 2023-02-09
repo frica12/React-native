@@ -2,6 +2,7 @@ import React, { useContext, useState, useRef } from "react";
 import styled, { ThemeContext } from "styled-components/native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Image, View, Text, ScrollView } from "react-native";
+import SearchBar from "../components/Searchbar";
 
 const Container = styled.View`
   flex: 1;
@@ -16,7 +17,7 @@ const StyledText = styled.Text`
   color: #111111;
 `;
 
-const News = ({ navigation }) => {
+const Newspage = ({ navigation }) => {
   const insets = useSafeAreaInsets();
   const theme = useContext(ThemeContext);
 
@@ -28,14 +29,23 @@ const News = ({ navigation }) => {
   return (
     <Container insets={insets}>
       <View>
-        <StyledText>
+        <Text
+          style={{
+            fontWeight: "bold",
+            fontSize: 20,
+            marginBottom: 10,
+            marginTop: 10,
+          }}
+        >
           {year}.{month}.{todaydate}
-        </StyledText>
-        <StyledText>News</StyledText>
-        <StyledText>ffff</StyledText>
+        </Text>
       </View>
+      <SearchBar />
+      <ScrollView>
+        <Container insets={insets}></Container>
+      </ScrollView>
     </Container>
   );
 };
 
-export default News;
+export default Newspage;

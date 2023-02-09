@@ -5,8 +5,12 @@ import {
   DrawerItemList,
 } from "@react-navigation/drawer";
 import Auth from "./Auth";
-import { News } from "../screens";
+import Auth2 from "./Auth2";
+import Auth3 from "./Auth3";
 import { Button } from "../components";
+import { MaterialIcons } from "@expo/vector-icons";
+import Tab from "./Tab";
+import Flat from "../screens/Flat";
 
 const Drawer = createDrawerNavigator();
 
@@ -24,6 +28,9 @@ const Sidebar = () => {
     <Drawer.Navigator
       initialRouteName="Main"
       screenOptions={{
+        headerStyle: {
+          backgroundColor: "#FA5858",
+        },
         drawerStyle: {
           backgroundColor: "#F2F2F2",
         },
@@ -85,18 +92,47 @@ const Sidebar = () => {
       )}
     >
       <Drawer.Screen
-        name="Main"
+        name="Nate"
         component={Auth}
         options={{
           drawerLabel: "네이트",
           drawerLabelStyle: styles.drawerLabel,
+          headerTitleStyle: {
+            fontWeight: "bold",
+            fontSize: 25,
+            color: "#ffffff",
+            ...Platform.select({
+              ios: {
+                fontFamily: "Futura",
+              },
+              android: {
+                fontFamily: "monospace",
+              },
+            }),
+          },
         }}
       />
 
       <Drawer.Screen
         name="News"
-        component={News}
-        options={{ drawerLabel: "뉴스", drawerLabelStyle: styles.drawerLabel }}
+        component={Tab}
+        options={{
+          drawerLabel: "뉴스",
+          drawerLabelStyle: styles.drawerLabel,
+          headerTitleStyle: {
+            fontWeight: "bold",
+            fontSize: 25,
+            color: "#ffffff",
+            ...Platform.select({
+              ios: {
+                fontFamily: "Futura",
+              },
+              android: {
+                fontFamily: "monospace",
+              },
+            }),
+          },
+        }}
       />
 
       <Drawer.Screen
@@ -107,13 +143,13 @@ const Sidebar = () => {
 
       <Drawer.Screen
         name="Blank2"
-        component={Auth}
+        component={Flat}
         options={{ drawerLabel: "판", drawerLabelStyle: styles.drawerLabel }}
       />
 
       <Drawer.Screen
         name="Blank3"
-        component={Auth}
+        component={Auth3}
         options={{ drawerLabel: "날씨", drawerLabelStyle: styles.drawerLabel }}
       />
 

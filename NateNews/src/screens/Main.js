@@ -10,7 +10,7 @@ const Container = styled.View`
   justify-content: center;
   align-items: center;
   background-color: ${({ theme }) => theme.background};
-  padding: 0 20px;
+  padding: 0 5px;
   padding-top: ${({ insets: { top } }) => top}px;
   padding-bottom: ${({ insets: { bottom } }) => bottom}px;
 `;
@@ -38,25 +38,6 @@ const Main = ({ navigation }) => {
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
   const todaydate = date.getDate();
-
-  // const [timer, setTimer] = useState("00:00:00");
-
-  // const currentTimer = () => {
-  //   const hours = String(date.getHours()).padStart(2, "0");
-  //   const minutes = String(date.getMinutes()).padStart(2, "0");
-  //   const seconds = String(date.getSeconds()).padStart(2, "0");
-  //   setTimer(`${hours}:${minutes}:${seconds}`);
-  // };
-
-  // const startTimer = () => {
-  //   setInterval(currentTimer, 1000);
-  // };
-
-  // startTimer();
-
-  const _handleSignBtnPress = () => {
-    console.log("News");
-  };
 
   return (
     <Container insets={insets}>
@@ -112,7 +93,7 @@ const Main = ({ navigation }) => {
           <View
             style={{
               width: "100%",
-              marginTop: -70,
+              marginTop: -90,
               backgroundColor: "#F2F2F2",
               flexDirection: "row",
               alignItems: "center",
@@ -122,9 +103,9 @@ const Main = ({ navigation }) => {
               style={{
                 color: "blue",
                 fontWeight: "bold",
-                fontSize: 18,
+                fontSize: 17,
                 marginLeft: "25%",
-                marginVertical: "5%",
+                marginVertical: "3%",
               }}
             >
               인기 검색어  :
@@ -142,10 +123,17 @@ const Main = ({ navigation }) => {
             backgroundColor: "white",
             height: 110,
             width: "100%",
+            marginTop: -30,
             marginBottom: 10,
           }}
         >
-          <View style={{ flexDirection: "row", width: "100%" }}>
+          <View
+            style={{
+              flexDirection: "row",
+              width: "100%",
+              justifyContent: "center",
+            }}
+          >
             <Image
               style={{ width: 160, height: 80, marginRight: 20 }}
               source={require(AD1path)}
