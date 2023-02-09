@@ -8,9 +8,9 @@ const Container = styled.View`
 
 const ProfileImage = styled.Image`
   background-color: ${({ theme }) => theme.imgBackground};
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
+  width: 150px;
+  height: 150px;
+  border-radius: 40px;
 `;
 
 const Image = ({ url }) => {

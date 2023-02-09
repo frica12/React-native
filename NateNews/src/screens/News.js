@@ -1,5 +1,7 @@
-import React from "react";
-import styled from "styled-components/native";
+import React, { useContext, useState, useRef } from "react";
+import styled, { ThemeContext } from "styled-components/native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { Image, View, Text, ScrollView } from "react-native";
 
 const Container = styled.View`
   flex: 1;
@@ -14,10 +16,24 @@ const StyledText = styled.Text`
   color: #111111;
 `;
 
-const News = () => {
+const News = ({ navigation }) => {
+  const insets = useSafeAreaInsets();
+  const theme = useContext(ThemeContext);
+
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const todaydate = date.getDate();
+
   return (
-    <Container>
-      <StyledText>News</StyledText>
+    <Container insets={insets}>
+      <View>
+        <StyledText>
+          {year}.{month}.{todaydate}
+        </StyledText>
+        <StyledText>News</StyledText>
+        <StyledText>ffff</StyledText>
+      </View>
     </Container>
   );
 };
