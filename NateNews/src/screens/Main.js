@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef } from "react";
+import React, { useContext, useState, useRef, useEffect } from "react";
 import styled, { ThemeContext } from "styled-components/native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import SearchBar from "../components/Searchbar";
@@ -39,18 +39,45 @@ const Main = ({ navigation }) => {
   const month = date.getMonth() + 1;
   const todaydate = date.getDate();
 
+  const [keywordIndex, setKeywordIndex] = useState(0);
+  const hotkeywords = [
+    "1. 뉴진스",
+    "2. 르세라핌",
+    "3. 아이브",
+    "4. 프로미스나인",
+    "5. 에스파",
+    "6. 소녀시대",
+    "7. 블랙핑크",
+    "8. 아이즈원",
+    "9. 레드벨벳",
+    "10. 트와이스",
+  ];
+
+  const changeKeyword = () => {
+    setKeywordIndex((keywordIndex + 1) % hotkeywords.length);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      changeKeyword();
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [keywordIndex]);
+
   return (
     <Container insets={insets}>
       <View>
+        <Text></Text>
         <Text
           style={{
             fontWeight: "bold",
             fontSize: 20,
             marginBottom: 10,
-            marginTop: -25,
+            marginTop: -40,
           }}
         >
-          {year}.{month}.{todaydate}
+          [TODAY] {year}.{month}.{todaydate}
         </Text>
       </View>
       <SearchBar />
@@ -110,9 +137,8 @@ const Main = ({ navigation }) => {
             >
               인기 검색어  :
             </Text>
-
             <Text style={{ color: "black", fontWeight: "bold", fontSize: 18 }}>
-                SKT FLYAI
+                {hotkeywords[keywordIndex]}
             </Text>
           </View>
         </Container>
@@ -135,11 +161,11 @@ const Main = ({ navigation }) => {
             }}
           >
             <Image
-              style={{ width: 160, height: 80, marginRight: 20 }}
+              style={{ width: 190, height: 95, marginRight: 20 }}
               source={require(AD1path)}
             />
             <Image
-              style={{ width: 160, height: 80 }}
+              style={{ width: 190, height: 95 }}
               source={require(AD2path)}
             />
           </View>
@@ -147,7 +173,12 @@ const Main = ({ navigation }) => {
 
         <Container
           insets={insets}
-          style={{ backgroundColor: "white", height: 110, width: "100%" }}
+          style={{
+            backgroundColor: "white",
+            height: 110,
+            width: "100%",
+            marginTop: 15,
+          }}
         >
           <View
             style={{
@@ -158,7 +189,7 @@ const Main = ({ navigation }) => {
           >
             <View style={{ alignItems: "center" }}>
               <Image
-                style={{ width: 100, height: 60, marginRight: 20 }}
+                style={{ width: 120, height: 72, marginRight: 20 }}
                 source={require(Artipic1)}
               />
               <Text style={{ marginRight: 20, marginTop: 5, width: 100 }}>
@@ -167,7 +198,7 @@ const Main = ({ navigation }) => {
             </View>
             <View style={{ alignItems: "center" }}>
               <Image
-                style={{ width: 100, height: 60, marginRight: 20 }}
+                style={{ width: 120, height: 72, marginRight: 20 }}
                 source={require(Artipic2)}
               />
               <Text style={{ marginRight: 20, marginTop: 5, width: 100 }}>
@@ -176,7 +207,7 @@ const Main = ({ navigation }) => {
             </View>
             <View style={{ alignItems: "center" }}>
               <Image
-                style={{ width: 100, height: 60 }}
+                style={{ width: 120, height: 72 }}
                 source={require(Artipic3)}
               />
               <Text style={{ marginTop: 5, width: 100 }}>
@@ -186,6 +217,19 @@ const Main = ({ navigation }) => {
           </View>
         </Container>
       </ScrollView>
+      <View
+        style={{
+          backgroundColor: "#FA5858",
+          height: 50,
+          width: "110%",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Text style={{ color: "lightgrey", fontWeight: "bold", fontSize: 13 }}>
+          개인정보처리방침 | 서비스 이용약관 | 광고문의
+        </Text>
+      </View>
     </Container>
   );
 };

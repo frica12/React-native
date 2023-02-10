@@ -5,12 +5,9 @@ import {
   DrawerItemList,
 } from "@react-navigation/drawer";
 import Auth from "./Auth";
-import Auth2 from "./Auth2";
-import Auth3 from "./Auth3";
 import { Button } from "../components";
 import { MaterialIcons } from "@expo/vector-icons";
 import Tab from "./Tab";
-import Flat from "../screens/Flat";
 
 const Drawer = createDrawerNavigator();
 
@@ -40,11 +37,12 @@ const Sidebar = () => {
         <View style={{ backgroundColor: "c" }}>
           <Image
             style={{
-              width: 100,
-              height: 100,
+              width: 120,
+              height: 120,
               alignSelf: "center",
               marginTop: 50,
-              marginBottom: 30,
+              marginBottom: 20,
+              borderRadius: 20,
             }}
             source={require("C:/Users/002/React-native/NateNews/assets/IM1.png")}
           />
@@ -143,13 +141,13 @@ const Sidebar = () => {
 
       <Drawer.Screen
         name="Blank2"
-        component={Flat}
+        component={Auth}
         options={{ drawerLabel: "판", drawerLabelStyle: styles.drawerLabel }}
       />
 
       <Drawer.Screen
         name="Blank3"
-        component={Auth3}
+        component={Auth}
         options={{ drawerLabel: "날씨", drawerLabelStyle: styles.drawerLabel }}
       />
 

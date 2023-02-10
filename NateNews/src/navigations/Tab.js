@@ -10,6 +10,8 @@ import {
 } from "../screens/Tabscreen";
 import styled from "styled-components/native";
 import { Image, View, Text, ScrollView } from "react-native";
+import Sp from "../Tabscreens/SportMain";
+import Sportnav from "./TabNavs/SportNav";
 
 const TopTab = createMaterialTopTabNavigator();
 
@@ -26,8 +28,8 @@ const Container = styled.View`
 const TopTabNavigation = () => {
   return (
     <TopTab.Navigator tabBarPosition="top">
-      <TopTab.Screen name="스포츠" component={Sport} />
-      <TopTab.Screen name="연예" component={Entertainment} />
+      <TopTab.Screen name="스포츠" component={Sportnav} />
+      <TopTab.Screen name="연예" component={Sportnav} />
       <TopTab.Screen name="정치" component={Politic} />
       <TopTab.Screen name="경제" component={Economic} />
       <TopTab.Screen name="사회" component={Social} />
