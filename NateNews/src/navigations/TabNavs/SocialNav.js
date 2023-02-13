@@ -1,17 +1,17 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Platform } from "react-native";
-import Sp from "../../Tabscreens/SportMain";
-import NB from "../../Tabscreens/SportContent";
+import SocialMain from "../../Tabscreens/SocialMain";
+import SocialContent from "../../Tabscreens/SocialContent";
 
 const Stack = createStackNavigator();
 
-const Sportnav = () => {
+const SocialNav = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Natepage"
-        component={Sp}
+        name="SocialMain"
+        component={SocialMain}
         options={{
           headerShown: false,
           headerStyle: {
@@ -34,8 +34,8 @@ const Sportnav = () => {
       />
 
       <Stack.Screen
-        name="NB"
-        component={NB}
+        name="SocialContent"
+        component={SocialContent}
         options={{
           headerShown: false,
           headerStyle: {
@@ -60,4 +60,4 @@ const Sportnav = () => {
   );
 };
 
-export default Sportnav;
+export default SocialNav;

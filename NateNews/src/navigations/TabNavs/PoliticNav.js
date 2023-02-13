@@ -1,8 +1,8 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Platform } from "react-native";
-import Sp from "../../Tabscreens/SportMain";
-import NB from "../../Tabscreens/SportContent";
+import PoliticMain from "../../Tabscreens/PoliticMain";
+import PoliticContent from "../../Tabscreens/PoliticContent";
 
 const Stack = createStackNavigator();
 
@@ -10,8 +10,8 @@ const PoliticNav = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Natepage"
-        component={Sp}
+        name="PoliticMain"
+        component={PoliticMain}
         options={{
           headerShown: false,
           headerStyle: {
@@ -34,8 +34,8 @@ const PoliticNav = () => {
       />
 
       <Stack.Screen
-        name="NB"
-        component={NB}
+        name="PoliticContent"
+        component={PoliticContent}
         options={{
           headerShown: false,
           headerStyle: {

@@ -148,14 +148,11 @@ export const Sport = () => {
   const insets = useSafeAreaInsets();
 
   const renderItem = ({ item }) => <Item title={item.title} />;
-  const [selectedId, setSelectedId] = useState(null);
 
   const date = new Date();
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
   const todaydate = date.getDate();
-
-  const navigation = useNavigation();
 
   return (
     <Container insets={insets}>
@@ -188,7 +185,6 @@ export const Sport = () => {
 
 export const Entertainment = () => {
   const insets = useSafeAreaInsets();
-  const theme = useContext(ThemeContext);
 
   const date = new Date();
   const year = date.getFullYear();
@@ -218,7 +214,6 @@ export const Entertainment = () => {
 
 export const Politic = () => {
   const insets = useSafeAreaInsets();
-  const theme = useContext(ThemeContext);
 
   const date = new Date();
   const year = date.getFullYear();
@@ -249,7 +244,6 @@ export const Politic = () => {
 
 export const Economic = () => {
   const insets = useSafeAreaInsets();
-  const theme = useContext(ThemeContext);
 
   const date = new Date();
   const year = date.getFullYear();
@@ -279,7 +273,6 @@ export const Economic = () => {
 
 export const Social = () => {
   const insets = useSafeAreaInsets();
-  const theme = useContext(ThemeContext);
 
   const date = new Date();
   const year = date.getFullYear();
@@ -309,7 +302,6 @@ export const Social = () => {
 
 export const World = () => {
   const insets = useSafeAreaInsets();
-  const theme = useContext(ThemeContext);
 
   const date = new Date();
   const year = date.getFullYear();

@@ -123,7 +123,7 @@ const Container = styled.View`
   padding: 0 5px;
 `;
 
-const SportMain = ({ navigation }) => {
+const SocialMain = ({ navigation }) => {
   const insets = useSafeAreaInsets();
 
   const date = new Date();
@@ -167,7 +167,7 @@ const SportMain = ({ navigation }) => {
                     },
                   }),
                 }}
-                onPress={() => navigation.navigate("SportContent")}
+                onPress={() => navigation.navigate("SocialContent")}
                 buttonStyle={{
                   backgroundColor: "white",
                   margin: 10,
@@ -192,4 +192,4 @@ const SportMain = ({ navigation }) => {
   );
 };
 
-export default SportMain;
+export default SocialMain;

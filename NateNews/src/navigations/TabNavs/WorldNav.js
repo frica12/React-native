@@ -1,8 +1,8 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Platform } from "react-native";
-import Sp from "../../Tabscreens/SportMain";
-import NB from "../../Tabscreens/SportContent";
+import WorldMain from "../../Tabscreens/WorldMain";
+import WorldContent from "../../Tabscreens/WorldContent";
 
 const Stack = createStackNavigator();
 
@@ -10,8 +10,8 @@ const WorldNav = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Natepage"
-        component={Sp}
+        name="WorldMain"
+        component={WorldMain}
         options={{
           headerShown: false,
           headerStyle: {
@@ -34,8 +34,8 @@ const WorldNav = () => {
       />
 
       <Stack.Screen
-        name="NB"
-        component={NB}
+        name="WorldContent"
+        component={WorldContent}
         options={{
           headerShown: false,
           headerStyle: {

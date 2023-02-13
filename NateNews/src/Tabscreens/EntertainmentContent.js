@@ -61,7 +61,7 @@ const Container = styled.View`
   padding: 0 5px;
 `;
 
-const SportContent = ({ navigation }) => {
+const EntertainmentContent = ({ navigation }) => {
   const insets = useSafeAreaInsets();
 
   const Pic1path =
@@ -176,4 +176,4 @@ const SportContent = ({ navigation }) => {
   );
 };
 
-export default SportContent;
+export default EntertainmentContent;
