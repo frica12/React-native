@@ -9,7 +9,7 @@ const Stack = createStackNavigator();
 const SocialNav = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen
+      <Stack.Screen // Page2 - '사회' Tab (뉴스 기사 목록)
         name="SocialMain"
         component={SocialMain}
         options={{
@@ -33,7 +33,7 @@ const SocialNav = () => {
         }}
       />
 
-      <Stack.Screen
+      <Stack.Screen // Page3 - '사회' Tab (뉴스 기사 본문)
         name="SocialContent"
         component={SocialContent}
         options={{

@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
 const Sidebar = () => {
   return (
     <Drawer.Navigator
-      initialRouteName="Main"
+      initialRouteName="Main" // 초기 화면 -> Main.js (Page1)
       screenOptions={{
         headerStyle: {
           backgroundColor: "#FA5858",
@@ -88,7 +88,7 @@ const Sidebar = () => {
         </View>
       )}
     >
-      <Drawer.Screen
+      <Drawer.Screen // 사이드바 - 네이트 (클릭 시 Page1로 이동)
         name="Nate"
         component={MainPage}
         options={{
@@ -110,7 +110,7 @@ const Sidebar = () => {
         }}
       />
 
-      <Drawer.Screen
+      <Drawer.Screen // 사이드바 - 뉴스 (클릭 시 Page2로 이동)
         name="News"
         component={Tab}
         options={{

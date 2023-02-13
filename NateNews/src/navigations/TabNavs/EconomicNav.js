@@ -9,7 +9,7 @@ const Stack = createStackNavigator();
 const EconomicNav = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen
+      <Stack.Screen // Page2 - '경제' Tab (뉴스 기사 목록)
         name="EconomicMain"
         component={EconomicMain}
         options={{
@@ -33,7 +33,7 @@ const EconomicNav = () => {
         }}
       />
 
-      <Stack.Screen
+      <Stack.Screen // Page3 - '경제' Tab (뉴스 기사 본문)
         name="EconomicContent"
         component={EconomicContent}
         options={{

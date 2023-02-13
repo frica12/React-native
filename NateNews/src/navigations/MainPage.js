@@ -8,7 +8,7 @@ const Stack = createStackNavigator();
 const MainPage = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen
+      <Stack.Screen // Page1 - 홈 페이지
         name="MainPage"
         component={Main}
         options={{

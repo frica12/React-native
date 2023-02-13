@@ -9,7 +9,7 @@ const Stack = createStackNavigator();
 const SportNav = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen
+      <Stack.Screen // Page2 - '스포츠' Tab (뉴스 기사 목록)
         name="SportMain"
         component={SportMain}
         options={{
@@ -33,7 +33,7 @@ const SportNav = () => {
         }}
       />
 
-      <Stack.Screen
+      <Stack.Screen // Page3 - '스포츠' Tab (뉴스 기사 본문)
         name="SportContent"
         component={SportContent}
         options={{

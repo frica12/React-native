@@ -149,6 +149,7 @@ const EntertainmentMain = ({ navigation }) => {
       <SafeAreaView
         style={[styles.container, { borderWidth: 1, borderColor: "#e0e0e0" }]}
       >
+        {/*기사 목록 FlatList로 띄움*/}
         <FlatList
           data={DATA}
           keyExtractor={(item) => item.id}

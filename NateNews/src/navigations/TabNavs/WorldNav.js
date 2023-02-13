@@ -9,7 +9,7 @@ const Stack = createStackNavigator();
 const WorldNav = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen
+      <Stack.Screen // Page2 - '세계' Tab (뉴스 기사 목록)
         name="WorldMain"
         component={WorldMain}
         options={{
@@ -33,7 +33,7 @@ const WorldNav = () => {
         }}
       />
 
-      <Stack.Screen
+      <Stack.Screen // Page3 - '세계' Tab (뉴스 기사 본문)
         name="WorldContent"
         component={WorldContent}
         options={{

@@ -69,6 +69,7 @@ const EntertainmentContent = ({ navigation }) => {
 
   const [isModalVisible, setModalVisible] = useState(false);
 
+  // 이미지 버튼 함수 (Modal에서 사용)
   const imagePress = () => {
     console.log("Image Clicked!");
     setModalVisible(true);
@@ -98,10 +99,12 @@ const EntertainmentContent = ({ navigation }) => {
         <Text style={{ color: "grey" }}>2023-02-09 18:56 {"<최종 수정>"}</Text>
         <Text style={{ color: "grey" }}>동아일보 원문</Text>
         <View style={{ flexDirection: "row", marginTop: 10, marginBottom: 10 }}>
+          {/*댓글 버튼*/}
           <TouchableOpacity style={{ marginRight: 15 }}>
             <Icon3 name="comments" size={30} color="black" />
           </TouchableOpacity>
 
+          {/*공유 버튼*/}
           <TouchableOpacity>
             <Icon2 name="share-alternative" size={30} color="black" />
           </TouchableOpacity>
@@ -120,6 +123,7 @@ const EntertainmentContent = ({ navigation }) => {
         </TouchableOpacity>
         <Divider style={{ height: 5 }} />
 
+        {/*Modal (팝업 바)*/}
         <Modal isVisible={isModalVisible} style={styles.bottomModal}>
           <View style={styles.modalContent}>
             <Text>You Clicked On Modal !{"\n"}</Text>
