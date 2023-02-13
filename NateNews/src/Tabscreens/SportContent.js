@@ -1,20 +1,19 @@
-import React, { useContext, useState, useRef } from "react";
-import styled, { ThemeContext } from "styled-components/native";
+import React, { useState } from "react";
+import styled from "styled-components/native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import {
   Image,
   View,
   Text,
   ScrollView,
-  FlatList,
   StyleSheet,
-  StatusBar,
-  SafeAreaView,
+  TouchableOpacity,
 } from "react-native";
-import SearchBar from "../components/Searchbar";
 import { Divider } from "react-native-elements";
-import { useNavigation, TouchableOpacity } from "@react-navigation/native";
 import { Button } from "react-native-elements";
+import Modal from "react-native-modal";
+import Icon2 from "react-native-vector-icons/Entypo";
+import Icon3 from "react-native-vector-icons/Foundation";
 
 const styles = StyleSheet.create({
   // 기사 제목 style
@@ -41,6 +40,17 @@ const styles = StyleSheet.create({
       },
     }),
   },
+  bottomModal: {
+    justifyContent: "flex-end",
+    margin: 0,
+  },
+  modalContent: {
+    backgroundColor: "white",
+    padding: 30,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 4,
+  },
 });
 
 const Container = styled.View`
@@ -51,12 +61,7 @@ const Container = styled.View`
   padding: 0 5px;
 `;
 
-const StyledText = styled.Text`
-  font-size: 30px;
-  color: #111111;
-`;
-
-const Item = ({ title, onPress }) => (
+const Item = ({ title }) => (
   <View style={styles.item}>
     <Text style={styles.title}>{title}</Text>
   </View>
@@ -65,15 +70,15 @@ const Item = ({ title, onPress }) => (
 const SportContent = ({ navigation }) => {
   const insets = useSafeAreaInsets();
 
-  const renderItem = ({ item }) => <Item title={item.title} />;
-  const [selectedId, setSelectedId] = useState(null);
-
   const Pic1path =
     "C:/Users/002/React-native/NateNews/assets/Images/ArticlePic1.png";
-  const date = new Date();
-  const year = date.getFullYear();
-  const month = date.getMonth() + 1;
-  const todaydate = date.getDate();
+
+  const [isModalVisible, setModalVisible] = useState(false);
+
+  const imagePress = () => {
+    console.log("Image Clicked!");
+    setModalVisible(true);
+  };
 
   return (
     <Container insets={insets}>
@@ -95,19 +100,43 @@ const SportContent = ({ navigation }) => {
           편의점 직원 살해 후 달아난 30대男…16살부터 상습 강도질
           {"\n"}
         </Text>
-        <Text style={{ color: "grey" }}>2023-02-09 18:56</Text>
+        <Text style={{ color: "grey" }}>2023-02-08 22:14</Text>
+        <Text style={{ color: "grey" }}>2023-02-09 18:56 {"<최종 수정>"}</Text>
         <Text style={{ color: "grey" }}>동아일보 원문</Text>
+        <View style={{ flexDirection: "row", marginTop: 10, marginBottom: 10 }}>
+          <TouchableOpacity style={{ marginRight: 15 }}>
+            <Icon3 name="comments" size={30} color="black" />
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <Icon2 name="share-alternative" size={30} color="black" />
+          </TouchableOpacity>
+        </View>
         {/* 기사 제목, 날짜, 언론사 정보 가져와서 여기 넣기*/}
       </View>
       <Divider style={{ height: 5 }} />
       <ScrollView
         style={[styles.container, { borderWidth: 1, borderColor: "#e0e0e0" }]}
       >
-        <Image
-          style={{ width: 420, height: 210, marginTop: 15 }}
-          source={require(Pic1path)}
-        />
+        <TouchableOpacity onPress={imagePress}>
+          <Image
+            style={{ width: 420, height: 210, marginTop: 15 }}
+            source={require(Pic1path)}
+          />
+        </TouchableOpacity>
         <Divider style={{ height: 5 }} />
+
+        <Modal isVisible={isModalVisible} style={styles.bottomModal}>
+          <View style={styles.modalContent}>
+            <Text>You Clicked On Modal !{"\n"}</Text>
+            <Text>You Clicked On Modal !{"\n"}</Text>
+            <Text>You Clicked On Modal !{"\n"}</Text>
+            <Text>You Clicked On Modal !{"\n"}</Text>
+            <Text>You Clicked On Modal !{"\n"}</Text>
+            <Text>You Clicked On Modal !{"\n"}</Text>
+            <Button title="Hide Modal" onPress={() => setModalVisible(false)} />
+          </View>
+        </Modal>
         <Text style={{ padding: 5, marginTop: 10, fontSize: 15 }}>
           인천에서 편의점 직원을 흉기로 찔러 살해한 뒤 위치추적
           전자장치(전자발찌)를 훼손하고 도주한 30대 남성이 10대 때부터 상습

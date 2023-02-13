@@ -1,21 +1,9 @@
-import React, { useContext, useState, useRef } from "react";
-import styled, { ThemeContext } from "styled-components/native";
+import React, { useState } from "react";
+import styled from "styled-components/native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import {
-  Image,
-  View,
-  Text,
-  ScrollView,
-  FlatList,
-  StyleSheet,
-  StatusBar,
-  SafeAreaView,
-} from "react-native";
+import { View, Text, FlatList, StyleSheet, SafeAreaView } from "react-native";
 import SearchBar from "../components/Searchbar";
-import { Divider } from "react-native-elements";
-import { useNavigation, TouchableOpacity } from "@react-navigation/native";
 import { Button } from "react-native-elements";
-import NewsBody from "../screens/NewsBody";
 
 const DATA = [
   {
