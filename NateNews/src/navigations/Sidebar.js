@@ -43,7 +43,7 @@ const Sidebar = () => {
               marginBottom: 20,
               borderRadius: 20,
             }}
-            source={require("C:/Users/002/React-native/NateNews/assets/IM1.png")}
+            source={require("../../assets/IM1.png")}
           />
           <View style={{ backgroundColor: "#ffffff" }}>
             <DrawerItemList {...props} />

@@ -29,9 +29,7 @@ export default function SearchBar() {
 
   return (
     <SearchBarWrapper>
-      <SearchIcon
-        source={require("C:/Users/002/React-native/NateNews/assets/search.png")}
-      />
+      <SearchIcon source={require("../../assets/search.png")} />
       <SearchInput
         autoCapitalize="none"
         autoCorrect={false}

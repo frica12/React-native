@@ -64,8 +64,7 @@ const Container = styled.View`
 const SportContent = ({ navigation }) => {
   const insets = useSafeAreaInsets();
 
-  const Pic1path =
-    "C:/Users/002/React-native/NateNews/assets/Images/ArticlePic1.png";
+  const Pic1path = "../../assets/Images/ArticlePic1.png";
 
   const [isModalVisible, setModalVisible] = useState(false);
 

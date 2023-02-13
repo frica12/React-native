@@ -64,9 +64,7 @@ const Container = styled.View`
 const EconomicContent = ({ navigation }) => {
   const insets = useSafeAreaInsets();
 
-  const Pic1path =
-    "C:/Users/002/React-native/NateNews/assets/Images/ArticlePic1.png";
-
+  const Pic1path = "../../assets/Images/ArticlePic1.png";
   const [isModalVisible, setModalVisible] = useState(false);
 
   // 이미지 버튼 함수 (Modal에서 사용)
