@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { Main, NewsBody } from "../screens";
-import { MaterialIcons } from "@expo/vector-icons";
+import { Main } from "../screens";
 import { Platform } from "react-native";
 
 const Stack = createStackNavigator();
 
-const Auth = () => {
+const MainPage = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Natepage"
+        name="MainPage"
         component={Main}
         options={{
           headerShown: false,
@@ -36,4 +35,4 @@ const Auth = () => {
   );
 };
 
-export default Auth;
+export default MainPage;

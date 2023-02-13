@@ -9,8 +9,6 @@ import {
   World,
 } from "../screens/Tabscreen";
 import styled from "styled-components/native";
-import { Image, View, Text, ScrollView } from "react-native";
-import Sp from "../Tabscreens/SportMain";
 import Sportnav from "./TabNavs/SportNav";
 
 const TopTab = createMaterialTopTabNavigator();

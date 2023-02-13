@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { Main, NewsBody } from "../../screens";
-import { MaterialIcons } from "@expo/vector-icons";
 import { Platform } from "react-native";
 import SportMain from "../../Tabscreens/SportMain";
 import SportContent from "../../Tabscreens/SportContent";

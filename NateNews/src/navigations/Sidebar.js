@@ -1,12 +1,11 @@
 import React from "react";
-import { Image, View, Text, Platform, StyleSheet } from "react-native";
+import { Image, View, Platform, StyleSheet } from "react-native";
 import {
   createDrawerNavigator,
   DrawerItemList,
 } from "@react-navigation/drawer";
-import Auth from "./Auth";
+import MainPage from "./MainPage";
 import { Button } from "../components";
-import { MaterialIcons } from "@expo/vector-icons";
 import Tab from "./Tab";
 
 const Drawer = createDrawerNavigator();
@@ -34,7 +33,7 @@ const Sidebar = () => {
         drawerActiveTintColor: "#FA5858",
       }}
       drawerContent={(props) => (
-        <View style={{ backgroundColor: "c" }}>
+        <View>
           <Image
             style={{
               width: 120,
@@ -91,7 +90,7 @@ const Sidebar = () => {
     >
       <Drawer.Screen
         name="Nate"
-        component={Auth}
+        component={MainPage}
         options={{
           drawerLabel: "네이트",
           drawerLabelStyle: styles.drawerLabel,
@@ -135,37 +134,37 @@ const Sidebar = () => {
 
       <Drawer.Screen
         name="Blank1"
-        component={Auth}
+        component={MainPage}
         options={{ drawerLabel: "연예", drawerLabelStyle: styles.drawerLabel }}
       />
 
       <Drawer.Screen
         name="Blank2"
-        component={Auth}
+        component={MainPage}
         options={{ drawerLabel: "판", drawerLabelStyle: styles.drawerLabel }}
       />
 
       <Drawer.Screen
         name="Blank3"
-        component={Auth}
+        component={MainPage}
         options={{ drawerLabel: "날씨", drawerLabelStyle: styles.drawerLabel }}
       />
 
       <Drawer.Screen
         name="Blank4"
-        component={Auth}
+        component={MainPage}
         options={{ drawerLabel: "운세", drawerLabelStyle: styles.drawerLabel }}
       />
 
       <Drawer.Screen
         name="Blank5"
-        component={Auth}
+        component={MainPage}
         options={{ drawerLabel: "썰", drawerLabelStyle: styles.drawerLabel }}
       />
 
       <Drawer.Screen
         name="Blank6"
-        component={Auth}
+        component={MainPage}
         options={{ drawerLabel: "TV", drawerLabelStyle: styles.drawerLabel }}
       />
     </Drawer.Navigator>

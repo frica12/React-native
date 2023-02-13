@@ -2,10 +2,8 @@ import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { ThemeProvider } from "styled-components/native";
 import { theme } from "./theme";
-import Navigation from "./navigations";
 import { NavigationContainer } from "@react-navigation/native";
 import Sidebar from "./navigations/Sidebar";
-import TabNavigation from "./navigations/Tab";
 
 const App = () => {
   return (

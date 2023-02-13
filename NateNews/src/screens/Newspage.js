@@ -1,7 +1,7 @@
-import React, { useContext, useState, useRef } from "react";
+import React, { useContext } from "react";
 import styled, { ThemeContext } from "styled-components/native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Image, View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import SearchBar from "../components/Searchbar";
 
 const Container = styled.View`
